@@ -13,22 +13,38 @@
 
 * {
   font-family: "Mate", Courier, monospace;
+  line-height: 1.5;
 }
 h1 {
   font-size: 100px;
   font-family: "Anton SC", "Franklin Gothic Medium", "Arial Narrow", Arial,
     sans-serif;
   text-align: center;
+  background-color: #ffa441;
 }
 
-link {
+.link {
   text-align: center;
 }
 
 .question {
   font-size: 35px;
+  padding-left: 10px;
 }
 
 .answer {
   font-size: 20px;
+  padding-left: 20px;
+  padding-bottom: 70px;
 }
+
+.right {
+  text-align: right;
+  padding-left: 100px;
+  box-shadow: 5px;
+}
+
+p {
+  max-width: 200ch !important;
+}
+/* I had wanted the answers to reach the right end of the page for certain sections. After asking advice from a friend, she pointed out that the coding in reset.css is preventing this but I wasnt sure if I was allowed to change this. She suggested this as a workaround*/
