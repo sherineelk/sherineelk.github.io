@@ -11,6 +11,12 @@
 }
 /* I chose these two fonts to mimmic the style of the website im reviewing */
 
+p {
+  max-width: 200ch !important;
+}
+/* I had wanted the answers to reach the right end of the page for certain sections. 
+  After asking advice from a friend, she pointed out that the coding in reset.css is preventing this but I wasnt sure if I was allowed to change this. She suggested this as a workaround*/
+
 * {
   font-family: "Mate", Courier, monospace;
   line-height: 1.5;
@@ -22,6 +28,8 @@ h1 {
   text-align: center;
   background-color: #ffa441;
 }
+/* i tried to base my colour palette on Getty's Website, as a sort of callback. 
+i also plan to  break up the questions into segments based on topic, for visual interest*/
 
 .link {
   text-align: center;
@@ -30,21 +38,16 @@ h1 {
 .question {
   font-size: 35px;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .answer {
   font-size: 20px;
   padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 70px;
 }
 
 .right {
   text-align: right;
-  padding-left: 100px;
-  box-shadow: 5px;
 }
-
-p {
-  max-width: 200ch !important;
-}
-/* I had wanted the answers to reach the right end of the page for certain sections. After asking advice from a friend, she pointed out that the coding in reset.css is preventing this but I wasnt sure if I was allowed to change this. She suggested this as a workaround*/
