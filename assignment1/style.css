@@ -18,19 +18,20 @@ p {
   After asking advice from a friend, she pointed out that the coding in reset.css is preventing this but I wasnt sure if I was allowed to change this. She suggested this as a workaround*/
 
 div {
-  border-style: double;
+  background-color: whitesmoke;
+
+  /* border: double 5px; */
+  border: 10px solid transparent;
+  border-image: url(borderline.png);
+  border-image-slice: 100;
 }
+/* I initially tried to make a scribbly border using an image of the concept sketch of the 
+concert hall, but it didnt match the overall look of the website. 
+So instead i used a more simple scribble i found when checky Getty's index */
 
 * {
   font-family: "Mate", Courier, monospace;
   line-height: 1.5;
-}
-
-a {
-  color: black;
-  font-family: "Anton SC", "Franklin Gothic Medium", "Arial Narrow", Arial,
-    sans-serif;
-  font-size: 25px;
 }
 
 h1 {
@@ -41,17 +42,40 @@ h1 {
   background-color: #ffa441;
 }
 /* i tried to base my colour palette on Getty's Website, as a sort of callback. 
-i also plan to  break up the questions into segments based on topic, for visual interest*/
+i also plan to  break up the questions into segments based on topic, for visual interest 
+and to emulate the text sections of the website I'm reviewing*/
+a {
+  color: whitesmoke;
+  font-family: "Anton SC", "Franklin Gothic Medium", "Arial Narrow", Arial,
+    sans-serif;
+  font-size: 25px;
+}
 
 .link {
   text-align: center;
+  background-color: rgb(0, 0, 0);
+}
+
+.textformat {
+  padding: 25px;
+}
+
+.right {
+  text-align: right;
 }
 
 .question {
   font-size: 35px;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding: 10px 10px 0px 10px; */
+  padding: 10px;
+  text-indent: 30px;
+  text-decoration: underline;
+  text-decoration-thickness: 15px;
+  text-decoration-skip-ink: none;
+  text-underline-offset: -10px;
 }
+/* To create a mix of professional and approachable i thought to create a highlighter effect for the questions.
+I used different colours to segment my questions*/
 
 .answer {
   font-size: 20px;
@@ -60,6 +84,18 @@ i also plan to  break up the questions into segments based on topic, for visual 
   padding-bottom: 50px;
 }
 
-.right {
-  text-align: right;
+.underlinegreen {
+  text-decoration-color: #16a147aa;
+}
+
+.underlineblue {
+  text-decoration-color: #4596ff9d;
+}
+
+.underlineorange {
+  text-decoration-color: #ffa3419f;
+}
+
+.underlinered {
+  text-decoration-color: #ff6459a5;
 }
