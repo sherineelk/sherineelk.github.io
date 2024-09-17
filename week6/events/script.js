@@ -49,3 +49,12 @@ function removeMe() {
   }
   count--;
 }
+
+boxContainer.addEventListener("mouseover", dropMe);
+boxContainer.addEventListener("mouseout", pickMe);
+function dropMe() {
+  boxContainer.classList.add("drop");
+}
+function pickMe() {
+  boxContainer.classList.remove("drop");
+}
