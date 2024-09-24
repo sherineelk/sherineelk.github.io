@@ -1,3 +1,7 @@
+/* I'm aiming for a scrapbook feel with a dark background,
+ I also plan to use a handwritten but still legiable font for the title and subheading, 
+ perhaps a round bubbly font for the body text and footer? */
+
 :root {
   --primary-bg-color: #003d3a;
   --text-color: #454839;
@@ -5,8 +9,7 @@
   --main-text-color: #ffff00;
   --main-btn-bg-color: #454839;
 }
-/* The first few seconds of the video gives off a more vintage vibe but the rest of the video has an overall more minmalist style, 
-so im taking inspo from 80's Hong Kong movie posters for the colour palette, however i aim for other aspects of the website to give a more scrapbook feel.  */
+
 body,
 h1,
 p,
