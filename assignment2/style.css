@@ -25,35 +25,29 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
 }
 
 /* Add additional styles as needed */
 
 /* Create a container for the main content */
 .container {
-  max-width: 1000px;
-  width: 100%;
-  padding: 10px;
+  display: inline grid;
+  grid-template-columns: auto auto;
+  min-width: 100%;
+  padding: 20px;
 }
+/* used grid as a way for the user to be able to look at the video while being able to acces the timestamp at the same time.  */
 
 /* Header styling */
 header {
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  background-color: var(--main-bg-color);
   color: var(--main-text-color);
   padding: 10px 0;
-  text-align: center;
   width: 100%;
   font-size: 50px;
 }
 
 /* Navigation styling */
-nav {
-  margin-top: 20px;
-  text-align: center;
-}
 
 nav ul {
   list-style: none;
@@ -61,7 +55,7 @@ nav ul {
   justify-content: center;
 }
 
-nav ul li {
+ul li {
   margin-right: 20px;
 }
 
@@ -72,18 +66,21 @@ nav a {
 
 /* Media player styling */
 .media-player {
+  display: flex start;
   width: 100%;
-  margin: 0 auto;
+  max-width: 1000px;
 }
 
 .media-player video {
-  max-width: 100%;
+  max-width: 200%;
+  width: 100%;
 }
+/* make sure the video and controls take up a little more than half of the screen, so user can follow tutorial easily */
 
 .custom-controls {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
   gap: 1rem;
   margin-top: 10px;
   width: 100%;
@@ -114,6 +111,15 @@ nav a {
   background-color: var(--main-bg-color);
   width: 0;
   transition: width 0.3s ease;
+}
+
+.additional-info {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+
+  align-items: flex-start;
+  overflow: scroll;
 }
 
 /* Footer styling */
