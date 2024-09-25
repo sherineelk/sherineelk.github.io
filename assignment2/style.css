@@ -1,6 +1,13 @@
 /* I'm aiming for a scrapbook feel with a dark background,
  I also plan to use a handwritten but still legiable font for the title and subheading, 
- perhaps a round bubbly font for the body text and footer? */
+ perhaps a round bubbly font for the body text and footer?
+ bulletin board:
+ pic-https://cdn.pixabay.com/photo/2014/04/16/17/08/bulletin-board-325721_1280.jpg 
+ Source-https://pixabay.com/photos/bulletin-board-cork-structure-325721/ 
+ paper texture:
+ pic-https://cdn.pixabay.com/photo/2019/04/08/13/52/paper-4112063_1280.jpg 
+ Source-https://pixabay.com/photos/paper-texture-structure-lined-paper-4112063/
+ */
 
 :root {
   --primary-bg-color: #003d3a;
@@ -35,6 +42,7 @@ body {
   grid-template-columns: auto auto;
   min-width: 100%;
   padding: 20px;
+  max-height: 1000px;
 }
 /* used grid as a way for the user to be able to look at the video while being able to acces the timestamp at the same time.  */
 
@@ -116,10 +124,15 @@ nav a {
 .additional-info {
   display: flex;
   padding: 10px;
+  max-height: 500px;
   flex-direction: column;
-
   align-items: flex-start;
   overflow: scroll;
+}
+
+.timestamps {
+  display: inline-grid;
+  grid-template-columns: auto auto;
 }
 
 /* Footer styling */
