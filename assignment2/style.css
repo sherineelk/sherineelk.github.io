@@ -12,11 +12,11 @@ I initially thought of using line paper or a bullitin board as image backgrounds
  */
 
 :root {
-  --primary-bg-color: #05322f;
+  --primary-bg-color: #053032;
   --text-color: #003d3a;
-  --main-bg-color: #6e395a;
-  --main-text-color: #dec41f;
-  --main-btn-bg-color: rgb(223, 197, 30);
+  --main-bg-color: #712f4a;
+  --main-text-color: #deab1f;
+  --main-btn-bg-color: #deab1f;
 }
 /* I initially based the colour palette on the logo of the original video, and added in yellow for contrast.
 I double checked this colour palette with Adobe's colour contrast feauture, and the text colours stands out well against the background.  */
@@ -143,7 +143,7 @@ header {
 .progress-bar {
   width: 100%;
   height: 10px;
-  background-color: antiquewhite;
+  background-color: #fae9d7;
   margin-top: 10px;
   overflow: hidden;
   border-radius: 5px;
@@ -176,7 +176,7 @@ header {
   margin-left: 20px;
   margin-bottom: 30px;
   padding: 3% 22% 10% 5%;
-  background-color: rgb(223, 197, 30);
+  background-color: #deab1f;
   box-shadow: 10px 10px;
   border-radius: 5px;
 }
@@ -191,7 +191,7 @@ li {
 }
 
 .timestamps {
-  background-color: antiquewhite;
+  background-color: #fae9d7;
   border-left: 15px dotted var(--main-bg-color);
   box-shadow: 10px 10px;
   margin-right: 10px;
