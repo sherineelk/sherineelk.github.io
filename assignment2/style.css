@@ -1,6 +1,8 @@
 /* I'm aiming for a scrapbook feel with a dark background,
  I also plan to use a handwritten but still legiable font for the title and subheading, 
  perhaps a round bubbly font for the body text and footer?
+I initially thought of using line paper or a bullitin board as image backgrounds to achieve this scrapbook feel,
+ but i worried that it made the website look dated, so i used solid colour and experimented with form and shadow.
  bulletin board:
  pic-https://cdn.pixabay.com/photo/2014/04/16/17/08/bulletin-board-325721_1280.jpg 
  Source-https://pixabay.com/photos/bulletin-board-cork-structure-325721/ 
@@ -17,6 +19,19 @@
   --main-btn-bg-color: #454839;
 }
 
+.yatra-one-regular {
+  font-family: "Yatra One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.playpen-sans {
+  font-family: "Playpen Sans", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: bold;
+}
+
 body,
 h1,
 p,
@@ -25,8 +40,18 @@ ul {
   padding: 0;
 }
 
+h1,
+h2 {
+  font-family: "Yatra One", system-ui;
+}
+
+h2 {
+  font-size: 23px;
+  text-decoration-line: underline;
+}
+
 body {
-  font-family: "Arial", sans-serif;
+  font-family: "Playpen Sans", Arial, sans-serif;
   background-color: var(--primary-bg-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -44,7 +69,7 @@ body {
   height: 100vh;
   /* max-height: 1000px; */
 }
-/* used grid as a way for the user to be able to look at the video while being able to acces the timestamp at the same time.  */
+/* used grid as a way for the user to be able to look at the video while being able to access the timestamp at the same time.  */
 
 /* Header styling */
 header {
@@ -76,6 +101,7 @@ header {
   max-width: 200%;
   width: 100%;
   align-items: baseline;
+  display: flex;
 }
 /* make sure the video and controls take up a little more than half of the screen, so user can follow tutorial easily */
 
@@ -94,9 +120,21 @@ header {
   border: none;
   padding: 8px 12px;
   cursor: pointer;
-  font-size: 16px;
+  /* font-size: 16px; */
   display: flex;
   align-items: center;
+  max-height: 30px;
+  border-radius: 5px;
+}
+
+.custom-controls button:hover {
+  opacity: 0.7;
+}
+/* added this to give more user feedback when hovering over certain buttons  */
+
+.custom-controls img {
+  height: 15pt;
+  display: flex;
 }
 
 .progress-bar {
@@ -105,6 +143,7 @@ header {
   background-color: #ddd;
   margin-top: 10px;
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .progress-bar span {
@@ -112,6 +151,7 @@ header {
   height: 100%;
   background-color: var(--main-bg-color);
   width: 0;
+  border-radius: 5px;
   transition: width 0.3s ease;
 }
 
@@ -174,6 +214,11 @@ li {
   border: 5px solid #003d3a;
   margin-bottom: 10px;
   cursor: pointer;
+  border-radius: 5px;
+}
+
+.thumbnail-and-btn button:hover {
+  scale: 0.97;
 }
 
 .thumbnail-and-btn > h3 {
