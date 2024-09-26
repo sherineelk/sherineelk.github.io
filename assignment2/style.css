@@ -67,11 +67,15 @@ header {
   display: flex start;
   width: 100%;
   max-width: 1000px;
+  background-color: var(--main-bg-color);
+  max-block-size: 80%;
+  padding: 10px;
 }
 
 .media-player video {
   max-width: 200%;
   width: 100%;
+  align-items: baseline;
 }
 /* make sure the video and controls take up a little more than half of the screen, so user can follow tutorial easily */
 
@@ -119,7 +123,7 @@ header {
   align-items: flex-start;
   overflow: scroll;
   overflow-x: hidden;
-  background-image: url("https://cdn.pixabay.com/photo/2014/04/16/17/08/bulletin-board-325721_1280.jpg");
+  background-color: var(--main-bg-color);
 }
 /*I tried to somewhat match height of video when the window is maximised, but to also to fill up the page and create visual interest
  but it doesnt work when the window is resized, will need to look into this if i have the time. 
@@ -131,6 +135,7 @@ header {
   padding: 3% 22% 10% 5%;
   background-color: rgb(223, 30, 210);
   box-shadow: 10px 10px;
+  border-radius: 5px;
 }
 /* my attempt at trying to recreate a stickynote */
 nav ul {
@@ -144,8 +149,14 @@ li {
 
 .timestamps {
   background-color: antiquewhite;
-  border: 10px solid antiquewhite;
+  border-left: 15px dotted var(--main-bg-color);
+  box-shadow: 10px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-radius: 5px;
 }
+/* my attempt at creating a torn off page from a note binder, without having to import a picture. */
 
 .timestamps > h2 {
   padding: 10px;
@@ -162,6 +173,7 @@ li {
   column-gap: 1rem;
   border: 5px solid #003d3a;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .thumbnail-and-btn > h3 {
