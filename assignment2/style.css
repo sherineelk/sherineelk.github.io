@@ -12,12 +12,14 @@ I initially thought of using line paper or a bullitin board as image backgrounds
  */
 
 :root {
-  --primary-bg-color: #003d3a;
-  --text-color: #454839;
+  --primary-bg-color: #05322f;
+  --text-color: #003d3a;
   --main-bg-color: #6e395a;
-  --main-text-color: #ffff00;
-  --main-btn-bg-color: #454839;
+  --main-text-color: #dec41f;
+  --main-btn-bg-color: rgb(223, 197, 30);
 }
+/* I initially based the colour palette on the logo of the original video, and added in yellow for contrast.
+I double checked this colour palette with Adobe's colour contrast feauture, and the text colours stands out well against the background.  */
 
 .yatra-one-regular {
   font-family: "Yatra One", system-ui;
@@ -102,6 +104,7 @@ header {
   width: 100%;
   align-items: baseline;
   display: flex;
+  border-radius: 5px;
 }
 /* make sure the video and controls take up a little more than half of the screen, so user can follow tutorial easily */
 
@@ -128,7 +131,7 @@ header {
 }
 
 .custom-controls button:hover {
-  opacity: 0.7;
+  scale: 0.97;
 }
 /* added this to give more user feedback when hovering over certain buttons  */
 
@@ -140,7 +143,7 @@ header {
 .progress-bar {
   width: 100%;
   height: 10px;
-  background-color: #ddd;
+  background-color: antiquewhite;
   margin-top: 10px;
   overflow: hidden;
   border-radius: 5px;
@@ -149,7 +152,7 @@ header {
 .progress-bar span {
   display: block;
   height: 100%;
-  background-color: var(--main-bg-color);
+  background-color: var(--text-color);
   width: 0;
   border-radius: 5px;
   transition: width 0.3s ease;
@@ -173,7 +176,7 @@ header {
   margin-left: 20px;
   margin-bottom: 30px;
   padding: 3% 22% 10% 5%;
-  background-color: rgb(223, 30, 210);
+  background-color: rgb(223, 197, 30);
   box-shadow: 10px 10px;
   border-radius: 5px;
 }

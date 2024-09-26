@@ -8,10 +8,12 @@ video.addEventListener("timeupdate", updateProgressBar);
 function togglePlayPause() {
   if (video.paused || video.ended) {
     video.play();
-    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/pause--v1.png";
+    playPauseImg.src =
+      "https://img.icons8.com/?size=100&id=61012&format=png&color=05322f";
   } else {
     video.pause();
-    playPauseImg.src = "https://img.icons8.com/ios-glyphs/30/play--v1.png";
+    playPauseImg.src =
+      "https://img.icons8.com/?size=100&id=59862&format=png&color=05322f";
   }
 }
 function updateProgressBar() {
