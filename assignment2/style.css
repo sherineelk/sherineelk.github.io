@@ -3,16 +3,12 @@
  perhaps a round bubbly font for the body text and footer?
 I initially thought of using line paper or a bullitin board as image backgrounds to achieve this scrapbook feel,
  but i worried that it made the website look dated, so i used solid colour and experimented with form and shadow.
- bulletin board:
- pic-https://cdn.pixabay.com/photo/2014/04/16/17/08/bulletin-board-325721_1280.jpg 
- Source-https://pixabay.com/photos/bulletin-board-cork-structure-325721/ 
- paper texture:
- pic-https://cdn.pixabay.com/photo/2019/04/08/13/52/paper-4112063_1280.jpg 
- Source-https://pixabay.com/photos/paper-texture-structure-lined-paper-4112063/
+
  */
 
 :root {
   --primary-bg-color: #053032;
+  --shadow-color: #03151695;
   --text-color: #003d3a;
   --main-bg-color: #712f4a;
   --main-text-color: #deab1f;
@@ -59,6 +55,7 @@ body {
   line-height: 1.6;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Add additional styles as needed */
@@ -80,6 +77,7 @@ header {
   margin-left: 10px;
   width: 100%;
   font-size: 70px;
+  text-decoration: underline;
 }
 
 /* Navigation styling */
@@ -96,7 +94,10 @@ header {
   max-width: 1000px;
   background-color: var(--main-bg-color);
   max-block-size: 80%;
+  margin: 10px;
   padding: 10px;
+  box-shadow: -15px 15px #00020295;
+  border-radius: 10px;
 }
 
 .media-player video {
@@ -113,7 +114,7 @@ header {
   justify-content: space-between;
   align-items: start;
   gap: 1rem;
-  margin-top: 10px;
+  margin-top: 5px;
   width: 100%;
 }
 
@@ -131,7 +132,7 @@ header {
 }
 
 .custom-controls button:hover {
-  scale: 0.97;
+  rotate: 2deg;
 }
 /* added this to give more user feedback when hovering over certain buttons  */
 
@@ -167,10 +168,13 @@ header {
   overflow: scroll;
   overflow-x: hidden;
   background-color: var(--main-bg-color);
+  box-shadow: -15px 15px #00020295;
+  border-radius: 10px;
 }
 /*I tried to somewhat match height of video when the window is maximised, but to also to fill up the page and create visual interest
  but it doesnt work when the window is resized, will need to look into this if i have the time. 
- Hid horizontal scrollbar as it is unneeded given the container display is flexbox. */
+ Hid horizontal scrollbar as it is unneeded given the container display is flexbox. 
+ I also put a box shadow to make it seem like the two elements a layered on top of eacher other for added depth*/
 
 .material-list {
   margin-left: 20px;
@@ -180,7 +184,8 @@ header {
   box-shadow: 10px 10px;
   border-radius: 5px;
 }
-/* my attempt at trying to recreate a stickynote */
+/* my attempt at trying to recreate a stickynote
+I tried to rotate it to give it a more natural feel but it seemed out of place when the rest of the elements seemed orderly*/
 nav ul {
   list-style: none;
   display: flex;
@@ -222,7 +227,10 @@ li {
 
 .thumbnail-and-btn button:hover {
   scale: 0.97;
+  rotate: -2deg;
 }
+
+/* I figured to better represent the scrapbook feel, i used the rotate element for the timestamp and media buttons when the cursor hovered over it. */
 
 .thumbnail-and-btn > h3 {
   align-self: center;
@@ -232,7 +240,25 @@ li {
 /* implemented grid to allow for the text to be right next to the thumbnail 
 timestamp align-self referenced from this tutorial: https://www.youtube.com/watch?v=W-JPTJtGmU8*/
 
-/* tutorial for scrollbar:https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: #03151695;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsla(44, 75%, 50%, 0.623);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(44, 76%, 40%);
+}
+
+/* changing the scrollbar to match the colour palette and rounded edges of the website.
+tutorial for scrollbar:https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
 
 /* Footer styling */
 footer {

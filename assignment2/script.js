@@ -80,7 +80,7 @@ function goForward5() {
 
 const back5 = document.querySelector("#back-5");
 console.log(back5);
-forward5.addEventListener("click", goBack5);
+back5.addEventListener("click", goBack5);
 
 function goBack5() {
   video.currentTime = video.currentTime - 10;
