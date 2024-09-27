@@ -21,8 +21,8 @@ I initially thought of using line paper or a bullitin board as image backgrounds
 /* I initially based the colour palette on the logo of the original video, and added in yellow for contrast.
 I double checked this colour palette with Adobe's colour contrast feauture, and the text colours stands out well against the background.  */
 
-.yatra-one-regular {
-  font-family: "Yatra One", system-ui;
+.salsa-regular {
+  font-family: "Salsa", system-ui;
   font-weight: 400;
   font-style: normal;
 }
@@ -44,7 +44,7 @@ ul {
 
 h1,
 h2 {
-  font-family: "Yatra One", system-ui;
+  font-family: "Salsa", system-ui;
 }
 
 h2 {

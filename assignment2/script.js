@@ -21,25 +21,69 @@ function updateProgressBar() {
   progressBar.style.width = value + "%";
 }
 
-const FirstStepBtn = document.querySelector("#first-step-btn");
-const SecondStepBtn = document.querySelector("#second-step-btn");
-const ThirdStepBtn = document.querySelector("#third-step-btn");
-const FourthStepBtn = document.querySelector("#fourth-step-btn");
-const FifthStepBtn = document.querySelector("#fifth-step-btn");
+const firstStepBtn = document.querySelector("#first-step-btn");
+const secondStepBtn = document.querySelector("#second-step-btn");
+const thirdStepBtn = document.querySelector("#third-step-btn");
+const fourthStepBtn = document.querySelector("#fourth-step-btn");
+const fifthStepBtn = document.querySelector("#fifth-step-btn");
 const sixthStepBtn = document.querySelector("#sixth-step-btn");
 
-console.log(FirstStepBtn);
-FirstStepBtn.addEventListener("click", goToFirstStep);
+console.log(firstStepBtn);
+firstStepBtn.addEventListener("click", goToFirstStep);
 
 function goToFirstStep() {
   video.currentTime = 13;
 }
 
-console.log(SecondStepBtn);
-SecondStepBtn.addEventListener("click", goToSecondStep);
+console.log(secondStepBtn);
+secondStepBtn.addEventListener("click", goToSecondStep);
 
 function goToSecondStep() {
-  video.currentTime = 76.8;
+  video.currentTime = 29;
+}
+
+console.log(thirdStepBtn);
+thirdStepBtn.addEventListener("click", goToThirdStep);
+
+function goToThirdStep() {
+  video.currentTime = 94;
+}
+
+console.log(fourthStepBtn);
+fourthStepBtn.addEventListener("click", goToFourthstep);
+
+function goToFourthstep() {
+  video.currentTime = 127;
+}
+
+console.log(fifthStepBtn);
+fifthStepBtn.addEventListener("click", goToFifthStep);
+
+function goToFifthStep() {
+  video.currentTime = 150;
+}
+
+console.log(sixthStepBtn);
+sixthStepBtn.addEventListener("click", goToSixthStep);
+
+function goToSixthStep() {
+  video.currentTime = 230;
+}
+
+const forward5 = document.querySelector("#forward-5");
+console.log(forward5);
+forward5.addEventListener("click", goForward5);
+
+function goForward5() {
+  video.currentTime = video.currentTime + 10;
+}
+
+const back5 = document.querySelector("#back-5");
+console.log(back5);
+forward5.addEventListener("click", goBack5);
+
+function goBack5() {
+  video.currentTime = video.currentTime - 10;
 }
 
 video.addEventListener("dblclick", toggleFullScreen);
