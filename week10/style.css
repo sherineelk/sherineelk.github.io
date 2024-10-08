@@ -98,3 +98,48 @@ footer {
 #profile-content.show {
   display: block;
 }
+
+#scroll-content {
+  width: 400px;
+  height: 200px;
+  overflow: auto;
+  border: 2px dashed #e5e5cb7a;
+}
+
+#long-text {
+  width: 700px;
+  height: 700px;
+}
+
+#slides-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: auto;
+}
+
+.slide {
+  border: 1px dashed #e5e5cb7a;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4rem;
+}
+
+#navigation {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+#purple-box {
+  background-color: purple;
+  cursor: pointer;
+}
+
+#drop-box {
+  cursor: pointer;
+}
