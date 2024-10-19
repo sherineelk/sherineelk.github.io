@@ -83,3 +83,91 @@ const insertAboveTask = (zone, mouseY) => {
 };
 
 // tutorial used: https://www.youtube.com/watch?v=ecKw7FfikwI&list=LL&index=3
+
+let color = document.getElementById("color");
+let createBtn = document.getElementById("create-btn");
+let list = document.getElementById("list");
+console.log(color);
+console.log(createBtn);
+console.log(list);
+
+createBtn.onclick = () => {
+  let newNote = document.createElement("div");
+  newNote.classList.add("sticky-note");
+  newNote.innerHTML = ` 
+<span class="close"> x </span>
+ <textarea placeholder="Write Content"></textarea>`;
+  newNote.style.backgroundColor = color.value;
+  list.appendChild(newNote);
+};
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("close")) {
+    event.target.parentNode.remove();
+  }
+});
+
+const stickyNote = document.querySelector("sticky-note");
+let offsetX, offsetY;
+
+const move = (e) => {
+  stickyNote.style.left = `${e.clientX - offsetX}+ px`;
+  stickyNote.style.top = `${e.clientY - offsetY}+ px`;
+};
+
+stickyNote.addEventListener("mousedown", (e) => {
+  offsetX = e.clientX - stickyNoteoffsetLeft;
+  offsetY = e.clientY - stickyNoteoffsetTop;
+  document.addEventListener("mousemove", move);
+});
+
+document.addEventListener("mouseup", () => {
+  document.removeEventListener(mousemove, move);
+});
+
+// tutorial link:https://www.youtube.com/shorts/ogyTyL0SEko
+
+// let cursor = {
+//     x: null,
+//     y: null
+// }
+
+// let note = {
+//     dom: null,
+//     x: null,
+//     y: null
+// }
+
+// document.addEventListener('mousedown', (event) => {
+//     if(event.target.classList.contains('note')){
+//         cursor = {
+//             x:event.clientX,
+//             y: event.clientY,
+
+//         }
+//        note = {
+//         dom: event.target,
+//         x: event.target.getBoundingClientRect().left,
+//         x: event.target.getBoundingClientRect().top
+//        }
+//     }
+// })
+
+// document.addEventListener('mousemove', (event) => {
+//     if(note.dom == null) return;
+//     let currentCursor = {
+//         x: event.clientX,
+//         y:event.clientY
+//     }
+//     let distance = {
+//         x: currentCursor.x - cursor.x,
+//         y: currentCursor.y - cursor.y
+//     }
+//     note.dom.style.left = (note.x + distance.x) + 'px';
+//     note.dom.style.top = (note.x + distance.x) + 'px';
+// })
+// document.addEventListener('mouseup', () => {
+//     note.dom = null;
+// })
+
+// tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
