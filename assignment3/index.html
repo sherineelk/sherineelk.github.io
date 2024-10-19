@@ -9,6 +9,19 @@
     <title>Assignment 3 drag and drop</title>
   </head>
   <body>
+    <div class="container">
+      <form action="">
+        <input type="color" id="color" value="#e6b905" />
+        <button id="create-btn">+</button>
+      </form>
+      <div id="list">
+        <div class="sticky-note" draggable="true">
+          <span class="close"> x </span>
+          <textarea placeholder="Write Content"></textarea>
+        </div>
+      </div>
+    </div>
+
     <div class="swim-lane">
       <h1>To do</h1>
       <p class="task" draggable="true">paper protoype</p>
@@ -24,9 +37,6 @@
       <p class="task" draggable="true">market research</p>
       <p class="task" draggable="true">user mapping</p>
     </div>
-    <!-- <div class="container">
-      <div id="sticky-note" draggable="true"></div>
-    </div> -->
   </body>
   <script src="script.js" defer></script>
 </html>
