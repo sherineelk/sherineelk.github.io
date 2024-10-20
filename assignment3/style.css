@@ -88,7 +88,7 @@ input {
 
 #list .sticky-note {
   background-color: #e6b905;
-  width: max-content;
+  width: 150px;
   height: 150px;
   border-radius: 10px;
   border-top: rgb(30, 30, 30) 30px solid;

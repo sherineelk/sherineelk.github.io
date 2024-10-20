@@ -1,37 +1,4 @@
-// let newX = 0,
-//   newY = 0,
-//   startX = 0,
-//   startY = 0;
-
-// const stickyNote = document.getElementById("sticky-note");
-
-// stickyNote.addEventListener("mousedown", mouseDown);
-
-// function mouseDown(e) {
-//   startX = e.clientX;
-//   startY = e.clientY;
-
-//   document.addEventListener("mousemove", mouseMove);
-//   document.addEventListener("mouseup", mouseUp);
-// }
-
-// function mouseMove(e) {
-//   newX = startX - e.clientX;
-//   newY = startY - e.clientY;
-
-//   startX = e.clientX;
-//   startY = e.clientY;
-
-//   stickyNote.style.top = stickyNote.offsetTop - newY + "px";
-//   stickyNote.style.left = stickyNote.offsetLeft - newX + "px";
-// }
-
-// function mouseUp(e) {
-//   document.removeEventListener("mousemove", mouseMove);
-// }
-
-// got this segment of coding from this tutorial, https://www.youtube.com/watch?v=ymDjvycjgUM //
-
+// coding for drag and drop for orgnaising section, tutorial source: https://www.youtube.com/watch?v=ecKw7FfikwI&list=LL&index=3
 const task = document.querySelectorAll(".task");
 console.log(task);
 
@@ -82,40 +49,117 @@ const insertAboveTask = (zone, mouseY) => {
   return closestTask;
 };
 
-const form = document.getElementById("todo-form");
-const input = document.getElementById("todo-input");
-const todoLane = document.getElementById("todo-lane");
+//code to add task to organising, used same tutorial as drag and drop (https://www.youtube.com/watch?v=ecKw7FfikwI&list=LL&index=3)
+// const form = document.getElementById("todo-form");
+// const input = document.getElementById("todo-input");
+// const todoLane = document.getElementById("todo-lane");
 
-form.addEventListener("submit-btn", (e) => {
-  e.preventDefault();
-  const value = input.value;
+// form.addEventListener("submit-btn", (e) => {
+//   e.preventDefault();
+//   const value = input.value;
 
-  if (!value) return;
+//   if (!value) return;
 
-  const newTask = document.createElement("p");
-  newTask.classList.add("task");
-  newTask.setAtrribute("draggable", "true");
-  newTask.innerText = value;
+//   const newTask = document.createElement("p");
+//   newTask.classList.add("task");
+//   newTask.setAtrribute("draggable", "true");
+//   newTask.innerText = value;
+// });
+
+//create sticky note function
+
+// let color = document.getElementById("color");
+// let createBtn = document.getElementById("create-btn");
+// let list = document.getElementById("list");
+// console.log(color);
+// console.log(createBtn);
+// console.log(list);
+
+// createBtn.onmousedown = (e) => {
+//   createNewStickyNote();
+// };
+
+// function createNewStickyNote() {
+//   let newNote = document.createElement("div");
+//   newNote.classList.add("sticky-note");
+//   newNote.innerHTML = `
+// <span class="close"> x </span>
+//  <textarea placeholder="Write Content"></textarea>`;
+//   newNote.style.backgroundColor = color.value;
+//   newNote.style.position = "absolute";
+
+//   newNote.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
+//   newNote.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
+
+//   list.appendChild(newNote);
+
+//   move(newNote);
+// }
+
+// // createBtn.onmousedown = (e) => {
+// //   console.log("Create Button Pressed");
+// //   e.preventDefault();
+// //   createNewStickyNote();
+// // };
+
+// document.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("close")) {
+//     event.target.parentNode.remove();
+//   }
+// });
+
+// // tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
+
+// const stickyNote = document.querySelector(".sticky-note");
+// let offsetX, offsetY;
+
+// const move = (e) => {
+//   stickyNote.style.left = `${e.clientX - offsetX}px`;
+//   stickyNote.style.top = `${e.clientY - offsetY}px`;
+// };
+
+// stickyNote.addEventListener("mousedown", (e) => {
+//   offsetX = e.clientX - stickyNote.offsetLeft;
+//   offsetY = e.clientY - stickyNote.offsetTop;
+//   document.addEventListener("mousemove", move);
+//   document.addEventListener(
+//     "mouseup",
+//     () => {
+//       document.removeEventListener("mousemove", move);
+//     },
+//     { once: true }
+//   );
+// });
+
+const stickyNotes = document.querySelectorAll(".sticky-note");
+
+stickyNotes.forEach((stickyNote) => {
+  addDraggingFunctionality(stickyNote);
 });
 
-// tutorial used: https://www.youtube.com/watch?v=ecKw7FfikwI&list=LL&index=3
+function addDraggingFunctionality(stickyNote) {
+  let offsetX, offsetY;
 
-let color = document.getElementById("color");
-let createBtn = document.getElementById("create-btn");
-let list = document.getElementById("list");
-console.log(color);
-console.log(createBtn);
-console.log(list);
+  const move = (e) => {
+    stickyNote.style.left = `${e.clientX - offsetX}px`;
+    stickyNote.style.top = `${e.clientY - offsetY}px`;
+  };
 
-createBtn.onclick = () => {
-  let newNote = document.createElement("div");
-  newNote.classList.add("sticky-note");
-  newNote.innerHTML = ` 
-<span class="close"> x </span>
- <textarea placeholder="Write Content"></textarea>`;
-  newNote.style.backgroundColor = color.value;
-  list.appendChild(newNote);
-};
+  stickyNote.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    offsetX = e.clientX - stickyNote.getBoundingClientRect().left;
+    offsetY = e.clientY - stickyNote.getBoundingClientRect().top;
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener(
+      "mouseup",
+      () => {
+        document.removeEventListener("mousemove", move);
+      },
+      { once: true }
+    );
+  });
+}
 
 document.addEventListener("click", (event) => {
   if (event.target.classList.contains("close")) {
@@ -124,68 +168,7 @@ document.addEventListener("click", (event) => {
 });
 
 // tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
-
-const stickyNote = document.querySelector("sticky-note");
-let offsetX, offsetY;
-
-const move = (e) => {
-  stickyNote.style.left = `${e.clientX - offsetX}px`;
-  stickyNote.style.top = `${e.clientY - offsetY} px`;
-};
-
-stickyNote.addEventListener("mousedown", (e) => {
-  offsetX = e.clientX - stickyNote.offsetLeft;
-  offsetY = e.clientY - stickyNote.offsetTop;
-  document.addEventListener("mousemove", move);
-});
-
-document.addEventListener("mouseup", () => {
-  document.removeEventListener("mousemove", move);
-});
-
-// tutorial link:https://www.youtube.com/shorts/ogyTyL0SEko
-
-// let cursor = {
-//     x: null,
-//     y: null
-// }
-
-// let note = {
-//     dom: null,
-//     x: null,
-//     y: null
-// }
-
-// document.addEventListener('mousedown', (event) => {
-//     if(event.target.classList.contains('note')){
-//         cursor = {
-//             x:event.clientX,
-//             y: event.clientY,
-
-//         }
-//        note = {
-//         dom: event.target,
-//         x: event.target.getBoundingClientRect().left,
-//         x: event.target.getBoundingClientRect().top
-//        }
-//     }
-// })
-
-// document.addEventListener('mousemove', (event) => {
-//     if(note.dom == null) return;
-//     let currentCursor = {
-//         x: event.clientX,
-//         y:event.clientY
-//     }
-//     let distance = {
-//         x: currentCursor.x - cursor.x,
-//         y: currentCursor.y - cursor.y
-//     }
-//     note.dom.style.left = (note.x + distance.x) + 'px';
-//     note.dom.style.top = (note.x + distance.x) + 'px';
-// })
-// document.addEventListener('mouseup', () => {
-//     note.dom = null;
-// })
-
-// tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
+// initally used this tutorial to base my coding off of because i was hoping to get a add stickynote function working,
+// however after hours of troubleshooting with chatgpt, i couldnt get it to work as it would either reset a preexisting stickynote or flash on the screen before dissapearing.
+// Instead i decided to just exculisvely focus on how the drag function helps with my context, and asked chatgpt to write me a simple function at allows me to drag multiple sticky notes.
+// I also initially wanted to include an add task function for the organising section of the since the tutorial i was following also covered that topic, however i could not get it to work and could just try to create a new sticky note.
