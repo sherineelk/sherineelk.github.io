@@ -21,21 +21,28 @@
         </div>
       </div>
     </div>
+    <div>
+      <form id="todo-form">
+        <input type="text" placeholder="new task" id="todo-input" />
+        <button type="submit" id="submit-btn">Add +</button>
+      </form>
+      <div class="lanes">
+        <div class="swim-lane" id="todo-lane">
+          <h1>To do</h1>
+          <p class="task" draggable="true">paper protoype</p>
+          <p class="task" draggable="true">test scenario</p>
+        </div>
 
-    <div class="swim-lane">
-      <h1>To do</h1>
-      <p class="task" draggable="true">paper protoype</p>
-      <p class="task" draggable="true">test scenario</p>
-    </div>
-
-    <div class="swim-lane">
-      <h1>In progress</h1>
-      <p class="task" draggable="true">sketch out wireflow</p>
-    </div>
-    <div class="swim-lane">
-      <h1>Done</h1>
-      <p class="task" draggable="true">market research</p>
-      <p class="task" draggable="true">user mapping</p>
+        <div class="swim-lane">
+          <h1>In progress</h1>
+          <p class="task" draggable="true">sketch out wireflow</p>
+        </div>
+        <div class="swim-lane">
+          <h1>Done</h1>
+          <p class="task" draggable="true">market research</p>
+          <p class="task" draggable="true">user mapping</p>
+        </div>
+      </div>
     </div>
   </body>
   <script src="script.js" defer></script>

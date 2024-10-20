@@ -82,6 +82,22 @@ const insertAboveTask = (zone, mouseY) => {
   return closestTask;
 };
 
+const form = document.getElementById("todo-form");
+const input = document.getElementById("todo-input");
+const todoLane = document.getElementById("todo-lane");
+
+form.addEventListener("submit-btn", (e) => {
+  e.preventDefault();
+  const value = input.value;
+
+  if (!value) return;
+
+  const newTask = document.createElement("p");
+  newTask.classList.add("task");
+  newTask.setAtrribute("draggable", "true");
+  newTask.innerText = value;
+});
+
 // tutorial used: https://www.youtube.com/watch?v=ecKw7FfikwI&list=LL&index=3
 
 let color = document.getElementById("color");
@@ -107,22 +123,24 @@ document.addEventListener("click", (event) => {
   }
 });
 
+// tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
+
 const stickyNote = document.querySelector("sticky-note");
 let offsetX, offsetY;
 
 const move = (e) => {
-  stickyNote.style.left = `${e.clientX - offsetX}+ px`;
-  stickyNote.style.top = `${e.clientY - offsetY}+ px`;
+  stickyNote.style.left = `${e.clientX - offsetX}px`;
+  stickyNote.style.top = `${e.clientY - offsetY} px`;
 };
 
 stickyNote.addEventListener("mousedown", (e) => {
-  offsetX = e.clientX - stickyNoteoffsetLeft;
-  offsetY = e.clientY - stickyNoteoffsetTop;
+  offsetX = e.clientX - stickyNote.offsetLeft;
+  offsetY = e.clientY - stickyNote.offsetTop;
   document.addEventListener("mousemove", move);
 });
 
 document.addEventListener("mouseup", () => {
-  document.removeEventListener(mousemove, move);
+  document.removeEventListener("mousemove", move);
 });
 
 // tutorial link:https://www.youtube.com/shorts/ogyTyL0SEko
