@@ -161,14 +161,14 @@ function addDraggingFunctionality(stickyNote) {
   });
 }
 
-document.addEventListener("click", (event) => {
-  if (event.target.classList.contains("close")) {
-    event.target.parentNode.remove();
-  }
-});
+// document.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("close")) {
+//     event.target.parentNode.remove();
+//   }
+// });
 
 // tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
 // initally used this tutorial to base my coding off of because i was hoping to get a add stickynote function working,
-// however after hours of troubleshooting with chatgpt, i couldnt get it to work as it would either reset a preexisting stickynote or flash on the screen before dissapearing.
+// however after trying to debugging and doublechecking with chatgpt, i couldnt get it to work as it would either reset a preexisting stickynote or flash on the screen before dissapearing.
 // Instead i decided to just exculisvely focus on how the drag function helps with my context, and asked chatgpt to write me a simple function at allows me to drag multiple sticky notes.
 // I also initially wanted to include an add task function for the organising section of the since the tutorial i was following also covered that topic, however i could not get it to work and could just try to create a new sticky note.
