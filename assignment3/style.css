@@ -77,10 +77,6 @@ button {
   cursor: pointer;
 }
 
-input {
-  /* border-radius: 100%; */
-}
-
 #list textarea {
   all: unset;
   color: wheat;
