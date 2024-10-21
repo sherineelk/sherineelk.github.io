@@ -1,15 +1,39 @@
+.kalam-bold {
+  font-family: "Kalam", cursive;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.roboto-medium {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.roboto-bold {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   padding: 0;
   margin: 0%;
   background-color: hsl(231, 10%, 14%);
   display: flex;
-  font-family: "Courier New", Courier, monospace;
 }
 
+/* The organizing section is intended to be more orderly with straight edges for the swimlanes and a more rigid typeface,
+which matches the restrictive drag and drop function used. 
+ I decided to go for a minimal backdrop to give more emphasis to the tasks and to match the brainstorming section. 
+ */
+
 h1 {
-  font-size: 3rem;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  padding: 10px;
+  font-size: 2.5rem;
+  font-family: "Roboto", Franklin Gothic Medium, Arial Narrow, Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
 }
 
 #todo-input {
@@ -20,92 +44,48 @@ h1 {
 }
 
 .lanes {
+  margin-top: 20px;
   display: flex;
   gap: 7px;
   margin-right: 20px;
+  justify-items: space-between;
 }
 
 .swim-lane {
-  border: pink dashed 2px;
-  min-width: 150px;
+  border: pink double 5px;
+  min-width: 170px;
   height: fit-content;
+  padding-bottom: 20px;
+  padding: 5px;
 }
 
 .task {
   background-color: aliceblue;
   color: black;
-  margin: 10px;
+  margin: 15px;
   padding: 12px;
   border-radius: 10px;
   font-size: 1.2rem;
   cursor: move;
+  box-shadow: 10px 10px black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.task:hover {
+  scale: 1.05;
 }
 
 .is-dragging {
   scale: 1.05;
   box-shadow: 5px;
-  rotate: 10deg;
   color: aliceblue;
 }
 
-form {
-  background-color: aliceblue;
-  width: min-content;
-  padding: 5px;
-  margin: 10px;
-  gap: 10px;
-  border-radius: 10px;
-  display: flex;
-  gap: 10px;
-}
-
-textarea {
-  color: black !important;
-}
-
-form input,
-button {
-  all: unset;
-  width: 30px;
-  height: 30px;
-  margin: 5px;
-  align-self: center;
-  border-color: #212228;
-  background-color: transparent;
-  color: black;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-#list textarea {
-  all: unset;
-  color: wheat;
-}
-
-#list .sticky-note {
-  background-color: #e6b905;
-  width: 150px;
-  height: 150px;
-  border-radius: 10px;
-  /* border-top: rgb(30, 30, 30) 30px solid; */
-  padding: 10px;
-  position: absolute;
-  box-shadow: 10px 10px black;
-  color: #212228;
-  font-size: 1rem;
-  text-align: center;
-  padding: 60px 0;
-}
-
-#list .sticky-note span {
-  position: absolute;
-  bottom: 100%;
-  right: 0;
-  /* font-family: cursive; */
-  font-size: 2rem;
-  padding-right: 10px;
-  cursor: pointer;
-}
+/* The overall style direction for the brainstorming section was to have a more unrefined feel while still somewhat complementing the organizing section, so the sticky notes have the same rounded edges and box shadows as the tasks.
+ The dashed borders and the bigger handwriting font is meant to give a more relaxed feel, which matches the freely draggable function the sticky notes have.
+ */
 
 #container {
   margin: 20px;
@@ -113,17 +93,24 @@ button {
   border: palegreen dashed 5px;
   background-color: #212228;
   min-width: 50%;
-  /* display: flex; */
+  display: flex;
   overflow: hidden;
   position: relative;
+  border-radius: 15px;
 }
 
-#sticky-note {
-  width: 100px;
-  height: 100px;
+#list .sticky-note {
+  background-color: #e6b905;
+  width: 150px;
+  height: 150px;
   border-radius: 10px;
-  cursor: pointer;
-  position: fixed;
-  background-color: bisque;
-  box-shadow: #212228;
+  padding: 10px;
+  position: absolute;
+  box-shadow: 10px 10px black;
+  color: #212228;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 60px 0;
+  cursor: move;
+  font-family: "Kalam", Impact, Haettenschweiler, Arial Narrow Bold, sans-serif;
 }
