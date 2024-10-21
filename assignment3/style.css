@@ -107,7 +107,7 @@ button {
   cursor: pointer;
 }
 
-.container {
+#container {
   margin: 20px;
   padding: 10px;
   border: palegreen dashed 5px;

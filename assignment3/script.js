@@ -66,72 +66,9 @@ const insertAboveTask = (zone, mouseY) => {
 //   newTask.innerText = value;
 // });
 
-//create sticky note function
-
-// let color = document.getElementById("color");
-// let createBtn = document.getElementById("create-btn");
-// let list = document.getElementById("list");
-// console.log(color);
-// console.log(createBtn);
-// console.log(list);
-
-// createBtn.onmousedown = (e) => {
-//   createNewStickyNote();
-// };
-
-// function createNewStickyNote() {
-//   let newNote = document.createElement("div");
-//   newNote.classList.add("sticky-note");
-//   newNote.innerHTML = `
-// <span class="close"> x </span>
-//  <textarea placeholder="Write Content"></textarea>`;
-//   newNote.style.backgroundColor = color.value;
-//   newNote.style.position = "absolute";
-
-//   newNote.style.left = `${Math.random() * (window.innerWidth - 200)}px`;
-//   newNote.style.top = `${Math.random() * (window.innerHeight - 200)}px`;
-
-//   list.appendChild(newNote);
-
-//   move(newNote);
-// }
-
-// // createBtn.onmousedown = (e) => {
-// //   console.log("Create Button Pressed");
-// //   e.preventDefault();
-// //   createNewStickyNote();
-// // };
-
-// document.addEventListener("click", (event) => {
-//   if (event.target.classList.contains("close")) {
-//     event.target.parentNode.remove();
-//   }
-// });
-
-// // tutorial used: https://www.youtube.com/watch?v=eLSs9h7cZy0&t
-
-// const stickyNote = document.querySelector(".sticky-note");
-// let offsetX, offsetY;
-
-// const move = (e) => {
-//   stickyNote.style.left = `${e.clientX - offsetX}px`;
-//   stickyNote.style.top = `${e.clientY - offsetY}px`;
-// };
-
-// stickyNote.addEventListener("mousedown", (e) => {
-//   offsetX = e.clientX - stickyNote.offsetLeft;
-//   offsetY = e.clientY - stickyNote.offsetTop;
-//   document.addEventListener("mousemove", move);
-//   document.addEventListener(
-//     "mouseup",
-//     () => {
-//       document.removeEventListener("mousemove", move);
-//     },
-//     { once: true }
-//   );
-// });
-
 const stickyNotes = document.querySelectorAll(".sticky-note");
+const container = document.getElementById("container");
+const containerBoundary = container.getBoundingClientRect();
 
 stickyNotes.forEach((stickyNote) => {
   addDraggingFunctionality(stickyNote);
@@ -141,23 +78,40 @@ function addDraggingFunctionality(stickyNote) {
   let offsetX, offsetY;
 
   const move = (e) => {
-    stickyNote.style.left = `${e.clientX - offsetX}px`;
-    stickyNote.style.top = `${e.clientY - offsetY}px`;
+    let newLeft = e.clientX - offsetX;
+    let newTop = e.clientY - offsetY;
+
+    if (newLeft < 0) newLeft = 0;
+    if (newTop < 0) newTop = 0;
+    if (newLeft + stickyNote.offsetWidth > containerBoundary.width) {
+      newLeft = containerBoundary.width - stickyNote.offsetWidth;
+    }
+    if (newTop + stickyNote.offsetHeight > containerBoundary.height) {
+      newTop = containerBoundary.height - stickyNote.offsetHeight;
+    }
+
+    // Set new position
+    stickyNote.style.left = `${newLeft}px`;
+    stickyNote.style.top = `${newTop}px`;
   };
 
   stickyNote.addEventListener("mousedown", (e) => {
     e.preventDefault();
+    stickyNote.style.zIndex = 2;
+
+    stickyNotes.forEach((note) => {
+      if (note !== stickyNote) {
+        note.style.zIndex = 1;
+      }
+    });
+
     offsetX = e.clientX - stickyNote.getBoundingClientRect().left;
     offsetY = e.clientY - stickyNote.getBoundingClientRect().top;
 
     document.addEventListener("mousemove", move);
-    document.addEventListener(
-      "mouseup",
-      () => {
-        document.removeEventListener("mousemove", move);
-      },
-      { once: true }
-    );
+    document.addEventListener("mouseup", () => {
+      document.removeEventListener("mousemove", move);
+    });
   });
 }
 
